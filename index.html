@@ -1,0 +1,861 @@
+<!doctype html>
+<html>
+	<head>
+		<title>onix</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="stylesheet" href="splitslider/split.css" />
+		<link rel="stylesheet" href="https://use.typekit.net/crf4rue.css">
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
+		<link href="css/base.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="css/all.min.css" rel="stylesheet" type="text/css">
+
+		<style>
+  @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+* {
+  box-sizing: border-box;
+}
+.myCarousel {
+  position: relative;
+  background-color: #fafafa;
+}
+.myCarousel .slides-wrapper .slides {
+  position: absolute;
+}
+.myCarousel .slides-wrapper .slides.content {
+  height: 60%;
+  width: 45%;
+  top: 10%;
+  left: 0;
+}
+.myCarousel .slides-wrapper .slides.content .bodytext {
+  padding: 0 50px;
+  position: relative;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.myCarousel .slides-wrapper .slides.content .title {
+  font-size: 3.5em;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.myCarousel .slides-wrapper .slides.content .subtitle {
+  font-size: 1em;
+  line-height: 1.5;
+}
+.myCarousel .slides-wrapper .slides.photo {
+  height: 100%;
+  width: 55%;
+  top: 0;
+  right: 0;
+}
+.myCarousel .slides-wrapper .slides.photo .image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.myCarousel .slides-wrapper .slides.title {
+  height: 20%;
+  width: 55%;
+  bottom: 0;
+  left: 0;
+}
+.myCarousel .slides-wrapper .slides.title .bodytext {
+  padding: 0 50px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.myCarousel .slides-wrapper .slides.title .title {
+  margin: 0;
+  color: #fff;
+  margin-bottom: 5px;
+  font-family: serif;
+  font-size: 2.25em;
+  letter-spacing: 1px;
+}
+.myCarousel .slides-wrapper .slides.title .link {
+  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.65em;
+  letter-spacing: 2px;
+  margin-left: 3px;
+}
+.myCarousel .slides-wrapper .slides.title .link:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: -15px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  border: 1px solid;
+  border-left: 0;
+  border-bottom: 0;
+  transition: right 0.3s;
+}
+.myCarousel .slides-wrapper .slides.title .link:hover span {
+  opacity: 0.5;
+}
+.myCarousel .slides-wrapper .slides.title .link:hover:after {
+  right: -18px;
+}
+.myCarousel .slides-wrapper .slides.title .red {
+  background-color: lightyellow;
+}
+.myCarousel .slides-wrapper .slides.title .red .title,
+.myCarousel .slides-wrapper .slides.title .red .link {
+  color: #333;
+}
+.myCarousel .slides-wrapper .slides.title .blue {
+  background-color: lightblue;
+}
+.myCarousel .slides-wrapper .slides.title .green {
+  background-color: lightpink;
+}
+.myCarousel .slides-wrapper .slides.price {
+  height: 20%;
+  width: 25%;
+  bottom: 0;
+  left: 55%;
+  background-color: #333;
+}
+.myCarousel .slides-wrapper .slides.price > * {
+  transition-delay: 0.2s;
+}
+.myCarousel .slides-wrapper .slides.price .bodytext {
+  padding: 0 50px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.myCarousel .slides-wrapper .slides.price .bodytext span {
+  display: block;
+  color: #fff;
+}
+.myCarousel .slides-wrapper .slides.price .bodytext .title {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.myCarousel .slides-wrapper .slides.price .bodytext .title.red {
+  color: lightyellow;
+}
+.myCarousel .slides-wrapper .slides.price .bodytext .title.blue {
+  color: lightblue;
+}
+.myCarousel .slides-wrapper .slides.price .bodytext .title.green {
+  color: lightpink;
+}
+.myCarousel .slides-wrapper .slides.price .bodytext .label {
+  font-size: 2em;
+}
+.myCarousel .slides-wrapper .slides.counter {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+}
+.myCarousel .slides-wrapper .counter-content {
+  position: absolute;
+  top: 40%;
+  margin-top: 50px;
+  right: 0;
+  width: 50px;
+  background-color: #333;
+}
+.myCarousel .slides-wrapper .counter-content hr {
+  position: relative;
+  display: block;
+  transform: rotate(-45deg);
+  width: 20px;
+}
+.myCarousel .slides-wrapper .counter-content span {
+  display: block;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 12px;
+}
+.myCarousel #arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0 0 50px;
+}
+.myCarousel #arrows span {
+  margin: 0 10px;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: bold;
+}
+.myCarousel #arrows .prev,
+.myCarousel #arrows .next {
+  width: auto;
+  height: auto;
+  border: none !important;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: bold;
+  color: #000;
+}
+.myCarousel #arrows .prev.disable,
+.myCarousel #arrows .next.disable {
+  display: none;
+}
+.myCarousel #arrows .prev:hover,
+.myCarousel #arrows .next:hover {
+  opacity: 0.5;
+}
+
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; 
+}
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.ash {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.ash:hover {
+  background-color: #ddd;
+}
+
+.ash.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+	</head>
+	<body>
+		
+	<section class="bg-light py-3">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light ">
+				  <a class="img-fluid navbar-brand w-25" href="index.html"><img class="img-fluid" src="images/LOGO1.png"></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+						<a class="nav-link font-weight-bold active" href="#">HOME</a>
+					  </li>
+					   <li class="nav-item">
+						<a class="nav-link font-weight-bold" href="about.html">ABOUT</a>
+					  </li>
+					   <li class="nav-item">
+						<a class="nav-link font-weight-bold" href="services.html">SERVICES</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link font-weight-bold" href="CONTACT US.html">CONTACT</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link font-weight-bold" href="#">PROJECTS</a>
+					  </li>
+					   <li class="nav-item">
+						<a class="nav-link font-weight-bold" href="#">PAGES</a>
+					  </li>
+					   <li class="nav-item">
+						<a class="nav-link font-weight-bold" href="#">BLOG</a>
+					  </li>
+					</ul>
+					<a href="signup.html">
+						<button class="btn btn1 ml-5" type="submit">SUPPORT</button>
+					</a>
+				  </div>
+			</nav>
+		</div>
+	</section>
+	<section>
+		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+				<div class="carousel-item active">
+				  <img class="d-block w-100" src="images/slider1.png" alt="First slide">
+				  <div class="carousel-caption d-none d-md-block mb-5 pb-5">
+					<h1 class="font-weight-bold mb-4 wow bounceInUp" style=" animation-delay: 0.5s;">THE BEST WAY<BR>TO RUN YOUR BUSINEWSS</h1>
+					<p class="mb-5">Get online is easy. Succeeding online is a different story. You'll need<br>than just a beautiful website to stand out these days.</p>
+					<button class="btn3 ml-5">GET STARTED</button>
+				  </div>
+				</div>
+				<div class="carousel-item">
+				  <img class="d-block w-100" src="images/slider1.png" alt="Second slide">
+				  <div class="carousel-caption d-none d-md-block mb-5 pb-5">
+					<h1 class="font-weight-bold mb-4" style=" animation-delay: 0.5s;">THE BEST WAY<BR>TO RUN YOUR BUSINEWSS</h1>
+					<p class="mb-5">Get online is easy. Succeeding online is a different story. You'll need<br>than just a beautiful website to stand out these days.</p>
+					<button class="btn3 ml-5">GET STARTED</button>
+				  </div>
+				</div>
+				<div class="carousel-item">
+				  <img class="d-block w-100" src="images/slider1.png" alt="Third slide">
+				  <div class="carousel-caption d-none d-md-block mb-5 pb-5">
+					<h1 class="font-weight-bold mb-4" style=" animation-delay: 0.5s;">THE BEST WAY<BR>TO RUN YOUR BUSINEWSS</h1>
+					<p class="mb-5">Get online is easy. Succeeding online is a different story. You'll need<br>than just a beautiful website to stand out these days.</p>
+					<button class="btn3 ml-5">GET STARTED</button>
+				  </div>
+				</div>
+			  </div>
+			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			  </a>
+		</div>
+	</section>
+	<section>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-12 col-lg-4 text-center">
+					<div class="from border p-5">
+						<img class="img-fluid" src="images/Forma 1.png">
+						<h6 class="font-weight-bold pt-3  wow bounceInUp">GRAPHICS DESIGN</h6>
+						<span>___</span>
+						<p class="pt-4">When you objectively analyze your business, you are likely to get a new perspective. these new propel your.</p>
+
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 text-center">
+					<div class="from border p-5">
+						<img class="img-fluid" src="images/icon2.png">
+						<h6 class="font-weight-bold pt-3  wow bounceInUp">GRAPHICS DESIGN</h6>
+						<span>___</span>
+						<p class="pt-4 m-0">When you objectively analyze your business, you are likely to get a new perspective. these new propel your.</p>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 text-center">
+					<div class="from border p-5">
+						<img class="img-fluid" src="images/icon3.png">
+						<h6 class="font-weight-bold pt-3  wow bounceInUp">GRAPHICS DESIGN</h6>
+						<span>___</span>
+						<p class="pt-4">When you objectively analyze your business, you are likely to get a new perspective. these new propel your.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mt-5">
+		<div class="content-2">
+			<div class="row">
+				<div class="col-12 col-lg-6 d-flex justify-content-end p-5">
+					<div class="box">
+					<h6 class="m-0 font-weight-bold text-white text-center pt-3">Want to See How it Works?</h6>
+						<video width="200" height="180" controls>
+						  <source src="images/123.video.mp4" type="video/mp4">
+						  <source src="images/123.video.mp4" type="video/ogg">
+						  Your browser does not support the video tag.
+						</video>
+						
+					</div>
+				</div>
+				<div class="col-12 col-lg-6 p-5">
+					<div class="team-agency">
+						<h5 class="font-weight-bold">We Are Creative Digital agency<br> Team</h5>
+						<p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mt-5">
+		<div class="container">
+			<div class="title pt-5">
+					<h2 class="font-weight-bold text-center  wow bounceInUp">Discover Services We're Provided</h2>
+					<p class="text-center">Lorem Ipsum is simply dummy text of the printing and <br>typesetting industry. </p>
+				</div>
+			<div class="row">
+				<div class="col-12 col-lg-4 text-center mt-4">
+					<div class="from border p-5">
+						<img class="img-fluid" src="images/icon4.png">
+						<h6 class="font-weight-bold pt-3 wow bounceInUp">GRAPHICS DESIGN</h6>
+						<p class="pt-4">Branding, UI/UX, Print design</p>
+
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 text-center mt-4">
+					<div class="from border p-5">
+						<img class="img-fluid" src="images/icon5.png">
+						<h6 class="font-weight-bold pt-3  wow bounceInUp">PLANNING</h6>
+						<p class="pt-4">Planning, Consulting</p>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 text-center mt-4">
+					<div class="from border p-5">
+						<img class="img-fluid" src="images/icon6.png">
+						<h6 class="font-weight-bold pt-3  wow bounceInUp">ANALYSIS</h6>
+						<p class="pt-4">Brinding, UI/UX, Print design</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="title2 pt-5">
+				<h2 class="font-weight-bold text-center  wow bounceInUp">Case Study</h2>
+				<p class="text-center">Lorem Ipsum is simply dummy text of the printing and<br> typesetting industry. </p>
+			</div>
+
+				<div class="content text-center mt-5">
+				  <button class="btn3  active" onclick="filterSelection('all')">All</button>
+				  <button class="btn3 " onclick="filterSelection('nature')">DESIEN</button>
+				  <button class="btn3 " onclick="filterSelection('cars')"> DEVELOPMENT</button>
+				  <button class="btn3 aria-haspopup" onclick="filterSelection('people')">FINANCE</button>
+				</div>
+
+				<!-- Portfolio Gallery Grid -->
+				<div class="row">
+				  <div class="column nature">
+				    <div class="content">
+				      <img class="img-fluid my-2" src="images/images1.png" alt="Mountains">
+				    </div>
+				  </div>
+				  <div class="column nature">
+				    <div class="content">
+				    <img class="img-fluid my-2" src="images/images2.png" alt="Lights">
+				    </div>
+				  </div>
+				  <div class="column nature people">
+				    <div class="content">
+				    <img class="img-fluid my-2" src="images/images3.png" alt="Nature">
+				    </div>
+				  </div>
+				  
+				  <div class="column cars people">
+				    <div class="content">
+				      <img class="img-fluid my-2" src="images/images4.png" alt="Car">
+				    </div>
+				  </div>
+				  <div class="column cars">
+				    <div class="content">
+				    <img class="img-fluid my-2" src="images/images5.png" alt="Car">
+				    </div>
+				  </div>
+				  <div class="column cars people">
+				    <div class="content">
+				    <img class="img-fluid my-2" src="images/images6.png" alt="Car">
+				    </div>
+				  </div>
+				<!-- END GRID -->
+				</div>
+
+				<!-- END MAIN -->
+				</div>
+						</div>
+					</section>
+					<section class="content-3 mt-5">
+						<div class="container">
+							<div class="row py-3">
+								<div class="col-12 col-sm-4 col-md-4 col-lg-3 text-center mt-4">
+									 <div id="counters_1">
+									 	<img class="img-fluid my-4" src="images/icon1-1.png">
+						            	<div class="counter display-4 font-weight-bold" style="color:#09c48c;" data-TargetNum="8000" data-Speed="7000"></div>
+						            	<h3 class="text-white">USER</h3>
+						        	</div>
+								</div>
+								<div class="col-12 col-sm-4 col-md-4 col-lg-3 text-center mt-4">
+									 <div id="counters_1">
+									 <img class="img-fluid my-4" src="images/icon2-2.png">
+						            	<div class="counter display-4 font-weight-bold" style="color:#09c48c;" data-TargetNum="300" data-Speed="7000"></div>
+						            	<h3 class="text-white">PROJECT</h3>
+						        	</div>
+								</div>
+								<div class="col-12 col-sm-4 col-md-4 col-lg-3 text-center mt-4">
+									 <div id="counters_1">
+									 <img class="img-fluid my-4" src="images/icon3-3.png">
+						            	<div class="counter display-4 font-weight-bold" style="color:#09c48c;" data-TargetNum="180" data-Speed="7000"></div>
+						            	<h3 class="text-white">AWARD</h3>
+						        	</div>
+								</div>
+								<div class="col-12 col-sm-4 col-md-4 col-lg-3 text-center mt-4">
+									 <div id="counters_1">
+									 <img class="img-fluid my-4" src="images/icon4-4.png">
+						            	<div class="counter display-4 font-weight-bold" style="color:#09c48c;" data-TargetNum="5000" data-Speed="7000"></div>
+						            	<h3 class="text-white">FOLLOWERS</h3>
+						        	</div>
+								</div>
+	</section>
+	<section class="bg-dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-4 my-5">
+					<div class="content-4 border p-4">
+						<p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						<div class="content-5 d-flex">
+							<img class="img-fluid mr-4" src="images/images7.png">
+							<h6 class="text-white pt-3">What Client Says</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 my-5">
+					<div class="content-4 border p-4">
+						<p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen boosk.</p>
+						<div class="content-5 d-flex">
+							<img class="img-fluid mr-4" src="images/images7.png">
+							<h6 class="text-white pt-3">What Client Says</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 my-5">
+					<div class="content-4 border p-4">
+						<p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						<div class="content-5 d-flex">
+							<img class="img-fluid mr-4" src="images/images7.png">
+							<h6 class="text-white pt-3">What Client Says</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mt-5">
+      <div class="split myCarousel">
+        <div class="inner-wrapper">
+          <div class="slides-wrapper">
+            <div class="slides content">
+              <div class="slide">
+                <div class="bodytext">
+                  <h2 class="title">Velit aliqua excepteur</h2>
+                  <p class="subtitle">Sunt aliquip irure culpa laboris anim aliquip do dolor cillum id mollit adipisicing dolore elit in non cupidatat elit ad incididunt ullamco nostrud cupidatat esse ad excepteur quis nulla voluptate in.</p>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="bodytext">
+                  <h2 class="title">Qui voluptate in exer</h2>
+                  <p class="subtitle">Veniam fugiat quis quis eu sint deserunt aliquip duis laborum irure nostrud duis fugiat incididunt non officia elit voluptate.</p>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="bodytext">
+                  <h2 class="title">Lorem ipsum ullamco</h2>
+                  <p class="subtitle">In est veniam officia nostrud nisi adipisicing excepteur dolor fugiat do deserunt proident aliquip aute id qui in et ut voluptate minim minim reprehenderit anim ut nisi ad ut anim cillum veniam excepteur consequat est anim pariatur enim laboris.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="slides photo">
+              <div class="slide">
+                <div class="image" style="background-image: url(https://www.jqueryscript.net/dummy/1.jpg);"></div>
+              </div>
+              <div class="slide">
+                <div class="image" style="background-image: url(https://www.jqueryscript.net/dummy/4.jpg);"></div>
+              </div>
+              <div class="slide">
+                <div class="image" style="background-image: url(https://www.jqueryscript.net/dummy/5.jpg);"></div>
+              </div>
+            </div>
+
+            <div class="slides title">
+              <div class="slide red">
+                <div class="bodytext ">
+                  <h2 class="title">Oceanview estate</h2>
+                  <a class="link" href="#"><span>View the estate</span></a>
+                </div>
+              </div>
+              <div class="slide blue">
+                <div class="bodytext ">
+                  <h2 class="title">Arizona dream</h2>
+                  <a class="link" href="#"><span>View the estate</span></a>
+                </div>
+              </div>
+              <div class="slide green">
+                <div class="bodytext ">
+                  <h2 class="title">Swimming pool estate</h2>
+                  <a class="link" href="#"><span>View the estate</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="slides price">
+              <div class="slide">
+                <div class="bodytext ">
+                  <span class="title red">Special price</span>
+                  <span class="label" href="#">$998,500</span>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="bodytext ">
+                  <span class="title blue">Special price</span>
+                  <span class="label" href="#">$1,112,500</span>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="bodytext ">
+                  <span class="title green">Special price</span>
+                  <span class="label" href="#">$889,750</span>
+                </div>
+              </div>
+            </div>
+            <div class="slides counter">
+              <div class="slide">
+                <span>01</span>
+              </div>
+              <div class="slide">
+                <span>02</span>
+              </div>
+              <div class="slide">
+                <span>03</span>
+              </div>
+            </div>
+
+            <div class="counter-content">
+              <hr>
+              <span>03</span>
+            </div>
+          </div>
+
+          <div id="arrows" class="navigation-wrapper">
+            <a href="#" class="navigation-arrow prev">previous</a>
+            <span>.</span>
+            <a href="#" class="navigation-arrow next">next</a>
+          </div>
+        </div>
+      </div>
+	</section>
+	<section>
+		<div class="container my-5 ">
+			<div class="title3 pt-5">
+				<h2 class="font-weight-bold text-center wow bounceInUp">Expert Team</h2>
+				<p class="text-center">Lorem Ipsum is simply dummy text of the printing and<br> typesetting industry. </p>
+			</div>
+		<div class="row mt-5">
+			<div class="col-12 col-lg-3 col-md-6 mt-4">
+				<div class="team text-center from">
+					<div class="new-img-1">
+						<img class="img-fluid" src="images/images1-1.png">
+					</div>
+					<h6 class="py-3">ILEND D CRUZ</h6>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s book.</p>
+					<div class="ico d-flex justify-content-around py-4">
+						<i class="fab fa-facebook-f"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-pinterest-p"></i>
+						<i class="fab fa-vimeo-v"></i>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-3 col-md-6 mt-4">
+				<div class="team text-center from">
+					<div class="new-img-1">
+						<img class="img-fluid" src="images/images2-2.png">
+					</div>
+					<h6 class="py-3">ILEND D CRUZ</h6>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s book.</p>
+					<div class="ico d-flex justify-content-around py-4">
+						<i class="fab fa-facebook-f"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-pinterest-p"></i>
+						<i class="fab fa-vimeo-v"></i>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-3 col-md-6 mt-4">
+				<div class="team text-center from">
+					<div class="new-img-1">
+						<img class="img-fluid" src="images/images3-3.png">
+					</div>
+					<h6 class="py-3">ILEND D CRUZ</h6>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s book.</p>
+					<div class="ico d-flex justify-content-around py-4">
+						<i class="fab fa-facebook-f"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-pinterest-p"></i>
+						<i class="fab fa-vimeo-v"></i>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-3 col-md-6 mt-4">
+				<div class="team text-center from">
+					<div class="new-img-1">
+						<img class="img-fluid" src="images/images4-4.png">
+					</div>
+					<h6 class="py-3">ILEND D CRUZ</h6>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s book.</p>
+					<div class="ico d-flex justify-content-around py-4">
+						<i class="fab fa-facebook-f"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-pinterest-p"></i>
+						<i class="fab fa-vimeo-v"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<section class="bg-light  mt-5">
+		<div class="container">
+			<div class="title3 pt-5">
+				<h2 class="font-weight-bold text-center wow bounceInUp">Latest News</h2>
+				<p class="text-center">Lorem Ipsum is simply dummy text of the printing and<br> typesetting industry. </p>
+			</div>
+			<div class="row mt-5">
+				<div class="col-12 col-lg-6">
+					<div class="news-img">
+						<div class="new-img-1">
+							<img class="img-fluid" src="images/newsimg.png">
+						</div>
+						<h5 class="my-3">Desien is a art for desiner & means problem</h5>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					</div>
+				</div>
+				<div class="col-12 col-lg-6">
+					<div class="news-img2 d-flex">	
+						<div class="news-images">
+							<div class="new-img-1">
+								<img class="img-fluid" src="images/newsimg1.png">
+							</div>
+						</div>
+						<div class="news-p pl-4">
+						<h5>Desien is a art for desiner</h5>
+						<p>october 07,2021</p>
+						<p>When you objectively analyze your business, you are likely to get a new</p>
+						</div>
+					</div><hr>
+					<div class="news-img2 d-flex">	
+						<div class="news-images">
+							<div class="new-img-1">
+								<img class="img-fluid" src="images/newsimg2.png">
+							</div>
+						</div>
+						<div class="news-p pl-4">
+						<h5>How to Autuman cleam</h5>
+						<p>october 07,2021</p>
+						<p>When you objectively analyze your business, you are likely to get a new</p>
+						</div>
+					</div><hr>
+					<div class="news-img2 d-flex">	
+						<div class="news-images">
+							<div class="new-img-1">
+								<img class="img-fluid" src="images/newsimg3.png">
+							</div>
+						</div>
+						<div class="news-p pl-4">
+						<h5>Desien is a art for desiner</h5>
+						<p>october 07,2021</p>
+						<p>When you objectively analyze your business, you are likely to get a new</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+	</section>
+	<section>
+
+	</section>
+	<section class="footer">
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-12 col-lg-3 p-4 text-center">
+					<img class="img-fluid my-4 wow bounce" src="images/LOGO1.png">
+					<p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<p class="text-white">phone:-+91 777 888 9999</p>
+					<p class="text-white">Address: 201 oak street building 27 manchester, usa</p>
+				</div>
+				<div class="col-12 col-lg-3  p-4 text-center ">
+					<h3 class="text-white  my-4 support">SUPPORT</h3>
+					<p class="text-white">Help Center</p>
+					<p class="text-white">Community</p>
+					<p class="text-white">Learn More</p>
+					<p class="text-white">Contact Us</p>
+				</div>
+				<div class="col-12 col-lg-3  p-4 text-center">
+					<h3 class="text-white  my-4 support">INFORMATION</h3>
+					<p class="text-white">Google Map</p>
+					<p class="text-white">IOS App</p>
+					<p class="text-white">Play Store</p>
+					<p class="text-white">Windows</p>
+				</div>
+				<div class="col-12 col-lg-3  p-4 text-center">
+					<h3 class="text-white  my-4 support">LINK</h3>
+					<p class="text-white">Blog</p>
+					<p class="text-white">Terms & Conditions</p>
+					<p class="text-white">Privacy</p>
+					<p class="text-white">Developers</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="sub-footer d-flex justify-content-around p-4">
+		<div class="content">
+			<p class="m-0 text-white"><span class="font-weight-bold">copyright 2021.</span> all rights reserved by smartisorch</p>
+		</div>
+		<div class="content-6">
+			<i class="fab fa-facebook-f px-3 text-white"></i>
+			<i class="fab fa-twitter px-3 text-white"></i>
+			<i class="fab fa-pinterest-p px-3 text-white"></i>
+			<i class="fab fa-vimeo-v px-3 text-white"></i>
+		</div>
+	</section>
+		<div class="cursor">
+			<div class="cursor__inner cursor__inner--circle">
+				<div class="cursor__side cursor__side--left"></div>
+				<div class="cursor__side cursor__side--right"></div>
+			</div>
+		</div>
+<!-- 		<script>
+			$(document).ready(function(){
+				
+			$(".filter-button").click(function(){
+				var value = $(this).attr('data-fliter')
+				
+				if(value == "all")
+				}
+					$('.fliter').show(''1000);
+				}
+				else
+				{
+					$(".fliter").not('.'+value).hide('3000');
+					$(".fliter").fliter('.'+value).show('3000');
+				}
+			});
+				if($(".fliter-button").removeClass("active")){
+				   $(this).removeClass("active");
+				}
+				$(this).addClass("active");
+			});
+		</script> -->
+		<script src="js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+		<a class="gotopbtn" href="#"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+
+		<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+		<script src="splitslider/split.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script src="js/demo.js"></script>
+			<script type="text/javascript" src="js/multi-animated-counter.js"></script>
+		<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
+		
+
+	</body>
+</html>
